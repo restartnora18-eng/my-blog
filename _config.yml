@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: "花躲🍃"
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
+author: 花躲
 language: en
 timezone: ''
 
@@ -97,8 +97,19 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: meow
+post:
+  cover: false
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+# Comments
+comment:
+  enable: true
+  waline:
+    server_url: "https://waline-server-hazel.vercel.app"
+    lang: "zh-CN"
+    emoji: true
+    reaction: true
+    option: {}

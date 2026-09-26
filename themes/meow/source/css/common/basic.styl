@@ -145,6 +145,8 @@ hr
       color: var(--background-color-grey)
       z-index: $z-index-1
       opacity: .7
+      // 与头像灰猫色调对齐：分隔线图标去色为灰
+      filter: grayscale(1) brightness(.92) contrast(1.08)
       transition: all 1s ease-in-out
     &:hover:before
       left: 90%

@@ -787,6 +787,7 @@ hr:before {
   color: var(--background-color-grey);
   z-index: 10;
   opacity: 0.7;
+  filter: grayscale(1) brightness(0.92) contrast(1.08);
   transition: all 1s ease-in-out;
 }
 hr:hover:before {
@@ -3100,6 +3101,7 @@ body[data-mode="dark"] .search-container {
   background-color: #fff;
   border: 2px solid #fff;
   border-radius: 50%;
+  filter: grayscale(1) brightness(0.92) contrast(1.08);
 }
 #sidebar-info-name {
   position: relative;
@@ -3509,11 +3511,11 @@ body[data-mode="dark"] .post-meta .icon {
   justify-content: center;
   gap: 1rem;
 }
-#vercount_value_page_pv {
+#busuanzi_value_page_pv {
   display: flex;
   align-items: center;
 }
-#vercount_value_page_pv svg {
+#busuanzi_value_page_pv svg {
   height: 1rem;
 }
 @media (max-width: 900px) {

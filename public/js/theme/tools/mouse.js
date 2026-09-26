@@ -9,7 +9,7 @@ const initMouse = () => {
       for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[
         e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x +
         "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e]
-          .scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          .scale + ");z-index:99999");
       requestAnimationFrame(r)
     }
 
@@ -22,13 +22,12 @@ const initMouse = () => {
 
     function o(e) {
       var a = t.createElement("div");
-      a.className = "heart", s.push({
+      a.className = "heart", a.textContent = "💗", s.push({
         el: a,
-        x: e.clientX - 5,
-        y: e.clientY - 5,
+        x: e.clientX - 9,
+        y: e.clientY - 9,
         scale: 1,
-        alpha: 1,
-        color: c()
+        alpha: 1
       }), t.body.appendChild(a)
     }
 
@@ -52,7 +51,7 @@ const initMouse = () => {
       .mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
         setTimeout(e, 1e3 / 60)
       }, i(
-        ".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"
+        ".heart{position: fixed;width: auto;height: auto;font-size: 18px;line-height: 1;background: none;pointer-events: none;user-select: none;-webkit-user-select: none;}"
       ), n(), r()
   }(window, document);
 
