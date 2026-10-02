@@ -326,14 +326,14 @@ fiction:
 
 # Comment Module
 comment:
-  enable: false # Whether to enable comment module
+  enable: true # Whether to enable comment module
   display: true # Whether to show comment module at posts automatically
   type: waline # Comment system, type: waline
   lazyload: true # Whether to load comment system when comment module enters the browser's viewport
   # Waline Config, https://waline.js.org/
   waline:
-    server_url: # Waline server URL, see more at https://waline.js.org/guide/deploy/
-    lang: en-US # Language, e.g. zh-CN, en-US. https://waline.js.org/guide/features/i18n.html
+    server_url: "https://waline-server-hazel.vercel.app"
+    lang: zh-CN
     emoji: # https://waline.js.org/guide/features/emoji.html
     reaction: # https://waline.js.org/guide/features/reaction.html
     option: # Custom other Waline options, https://waline.js.org/reference/client/props.html

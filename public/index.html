@@ -58,7 +58,49 @@ document.body.setAttribute('data-mode', localStorage.getItem('color-mode'));
 <script src="/js/plugins/dist/lazyload.min.js"></script>
 
 <script src="/js/plugins/view-image.min.js"></script>
+<script>let recentCommentsFn = window.recentCommentsFn || null
 
+const initRecentComments = (Fn) => {
+  Fn({
+    serverURL: 'https://waline-server-hazel.vercel.app',
+    count: 10,
+  }).then(({ comments }) => {
+    let result = ""
+    if(comments.data.length > 0) {
+      comments.data.forEach((comment) => {
+        result += `<a class='recent-comments-item' href='${comment.url}' target='_blank'><div class='recent-comments-user'><img src='${comment.avatar}' alt='User Avatar' /><span>${comment.nick}</span></div><div class='recent-comments-content'>${comment.orig}</div></a><br>`
+      })
+    } else {
+      result = "😭No comment now..."
+    }
+    const el = document.querySelector('#sidebar-recent-comments .recent-comments-container')
+    el.setAttribute('loaded', '')
+    el.innerHTML = result
+  })
+}
+
+const loadRecentCommentsFn = async () => {
+  if (recentCommentsFn) {
+    initRecentComments(recentCommentsFn)
+  } else {
+    let jsPath = ''
+    if (false) {
+      jsPath = 'dist/waline.js'
+    } else {
+      jsPath = '/js/plugins/dist/waline.js'
+    }
+    const { RecentComments } = await import(jsPath)
+    recentCommentsFn = RecentComments || Waline.RecentComments
+    initRecentComments(recentCommentsFn)
+    window.recentCommentsFn = recentCommentsFn
+  }
+}
+
+if (true) {
+  meow.lazyloadFn(document.getElementById('sidebar-recent-comments'), loadRecentCommentsFn)
+} else {
+  loadRecentCommentsFn()
+}</script>
 <script src="/js/plugins/dist/APlayer.min.js"></script>
 <script>const initAplayer = (data) => {
   if (!data.length) return;
